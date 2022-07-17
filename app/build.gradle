@@ -26,7 +26,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'app.App'
+    mainClass = 'hexlet.code.App'
 }
 
 tasks.named('test') {
@@ -35,3 +35,7 @@ tasks.named('test') {
 }
 
 group = 'hexlet.code'
+
+compileJava {
+    options.release = 17
+}
