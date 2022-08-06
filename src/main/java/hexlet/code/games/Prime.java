@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 public class Prime {
     static final int maxRandomNumber = 100;
-    static final int maxSimpleNumber = 7;
+    static final int maxSimpleNumber = 9;
     public static String instructionInPrimeGame() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
