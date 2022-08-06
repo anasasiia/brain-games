@@ -1,28 +1,25 @@
 package hexlet.code;
 
-import java.util.Scanner;
+import hexlet.code.games.Progression;
 
 import static java.lang.System.out;
 
 
 public class App {
     public static void main(String[] args) {
+        final int choiceEven = 2;
+        final int choiceCalc = 3;
+        final int choiceGCD = 4;
+        final int choiceProgression = 5;
 
-        out.println("""
-                Please enter the game number and press Enter.
-                1 - Greet
-                2 - Even
-                0 - Exit""");
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Your choice: ");
-        var gameChosen = sc.nextInt();
+        out.println("Please enter the game number and press Enter.");
+        out.println("1 - Greet");
+        out.println(choiceEven + " - Even");
+        out.println(choiceCalc + " - Calc");
+        out.println(choiceGCD + " - GCD");
+        out.println(choiceProgression + " - Progression");
+        out.println("0 - Exit");
 
-        if (gameChosen == 1) {
-            Cli.getName();
-        }
-
-        if (gameChosen == 2) {
-            Even.gameEven();
-        }
+        Engine.games();
     }
 }
