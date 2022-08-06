@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Progression;
-
 import static java.lang.System.out;
 
 
@@ -11,6 +9,7 @@ public class App {
         final int choiceCalc = 3;
         final int choiceGCD = 4;
         final int choiceProgression = 5;
+        final int choicePrime = 6;
 
         out.println("Please enter the game number and press Enter.");
         out.println("1 - Greet");
@@ -18,6 +17,7 @@ public class App {
         out.println(choiceCalc + " - Calc");
         out.println(choiceGCD + " - GCD");
         out.println(choiceProgression + " - Progression");
+        out.println(choicePrime + " - Prime");
         out.println("0 - Exit");
 
         Engine.games();

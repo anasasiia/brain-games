@@ -1,11 +1,7 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Engine {
@@ -14,6 +10,7 @@ public class Engine {
         final int choiceCalc = 3;
         final int choiceGCD = 4;
         final int choiceProgression = 5;
+        final int choicePrime = 6;
 
         Scanner choice = new Scanner(System.in);
         System.out.print("Your choice: ");
@@ -37,6 +34,8 @@ public class Engine {
                 instruction = GCD.instructionInGcdGame();
             } else if (gameChosen == choiceProgression) {
                 instruction = Progression.instructionInProgressionGame();
+            } else if (gameChosen == choicePrime) {
+                instruction = Prime.instructionInPrimeGame();
             }
             System.out.println(instruction);
 
@@ -52,6 +51,8 @@ public class Engine {
                     question = GCD.questionInGcdGame();
                 } else if (gameChosen == choiceProgression) {
                     question = Progression.questionInProgressionGame();
+                } else if (gameChosen == choicePrime) {
+                    question = Prime.questionInPrimeGame();
                 }
 
                 System.out.println("Question: " + question);
@@ -67,6 +68,8 @@ public class Engine {
                     answer = Integer.toString(answerInGame.nextInt());
                 } else if (gameChosen == choiceProgression) {
                     answer = Integer.toString(answerInGame.nextInt());
+                } else if (gameChosen == choicePrime) {
+                    answer = answerInGame.nextLine();
                 }
 
                 String rightAnswer = null;
@@ -78,6 +81,8 @@ public class Engine {
                     rightAnswer = String.valueOf(GCD.rightAnswerInGcdGame(question));
                 } else if (gameChosen == choiceProgression) {
                     rightAnswer = String.valueOf(Progression.rightAnswerInProgressionGame(question));
+                } else if (gameChosen == choicePrime) {
+                    rightAnswer = Prime.rightAnswerInPrimeGame(question);
                 }
 
 
