@@ -2,16 +2,18 @@ package hexlet.code.games;
 
 
 public class Progression {
+    static final int maxLengthOfProgression = 5;
+    static final int maxRandomNumber = 30;
 
     public static String instructionInProgressionGame() {
         return "What number is missing in the progression?";
     }
 
     private static int[] generateProgression() {
-        int length = Math.abs(5 + (int) (Math.random() * 5));
+        int length = Math.abs(maxLengthOfProgression + (int) (Math.random() * maxLengthOfProgression));
         int[] progression = new int[length];
-        progression[0] = Math.abs((int) (Math.random() * (30 + 1)));
-        var index = Math.abs((int) (Math.random() * (30 + 1)));
+        progression[0] = Math.abs((int) (Math.random() * (maxRandomNumber + 1)));
+        var index = Math.abs((int) (Math.random() * (maxRandomNumber + 1)));
 
         for (var i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + index;
@@ -44,7 +46,7 @@ public class Progression {
         return indexHiddenNumber;
     }
 
-   public static int rightAnswerInProgressionGame(String question) {
+    public static int rightAnswerInProgressionGame(String question) {
         String[] progression = question.split(" ");
         var length = progression.length;
         var index = 0;
@@ -68,6 +70,4 @@ public class Progression {
 
         return rightAnswer;
    }
-
-
 }

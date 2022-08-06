@@ -87,15 +87,15 @@ public class Engine {
 
 
                 assert answer != null;
-                    if (answer.equals(rightAnswer)) {
-                        System.out.println("Correct!");
-                        rightAnswersCount += 1;
-                    } else {
-                        System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was" + "'" + rightAnswer + "'.\n"
-                                + "Let's try again, " + name + "!");
-                    }
+                if (answer.equals(rightAnswer)) {
+                    System.out.println("Correct!");
+                    rightAnswersCount += 1;
+                } else {
+                    System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was" + "'"
+                            + rightAnswer + "'.\n" + "Let's try again, " + name + "!");
+                }
 
-                } while (rightAnswersCount <= 2) ;
+            } while (rightAnswersCount <= 2);
 
             System.out.println("Congratulations, " + name + "!");
         }

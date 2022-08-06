@@ -1,12 +1,15 @@
 package hexlet.code.games;
 
 public class Even {
+
+    static final int maxRandomNumber = 100;
+
     public static String instructionInEvenGame() {
         return "Answer 'yes' if number even otherwise answer 'no'.";
     }
 
     public static String questionInEvenGame() {
-        var number = (int) (Math.random() * (100 + 1));
+        var number = (int) (Math.random() * (maxRandomNumber + 1));
         return Integer.toString(number);
     }
 
