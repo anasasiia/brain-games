@@ -9,8 +9,8 @@ public class GCD {
     }
 
     public static String questionInGcdGame() {
-        var num1 = (int) (Math.random() * (maxRandomNumber + 1));
-        var num2 = (int) (Math.random() * (maxRandomNumber + 1));
+        var num1 = (int) (Math.random() * (maxRandomNumber) + 1);
+        var num2 = (int) (Math.random() * (maxRandomNumber) + 1);
         return Math.abs(num1) + " " + Math.abs(num2);
     }
 
@@ -28,15 +28,8 @@ public class GCD {
             gcd = y;
         } else if (y % x == 0) {
             gcd = x;
-        } else if (x > y) {
+        } else {
             for (var i = y; i > 0; i--) {
-                if (x % i == 0 && y % i == 0) {
-                    gcd = i;
-                    break;
-                }
-            }
-        } else if (y > x) {
-            for (var i = x; i > 0; i--) {
                 if (x % i == 0 && y % i == 0) {
                     gcd = i;
                     break;
