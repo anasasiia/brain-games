@@ -20,8 +20,11 @@ public class Engine {
         System.out.print("Your choice: ");
         var gameChosen = choice.nextInt();
 
+
         if (gameChosen == 1) {
             Cli.getName();
+        } else if (gameChosen == 0) {
+            System.exit(0);
         } else {
             System.out.println("Welcome to the Brain Games!");
             Scanner nameScanner = new Scanner(System.in);
@@ -95,7 +98,7 @@ public class Engine {
                     System.out.println("Correct!");
                     rightAnswersCount += 1;
                 } else {
-                    System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was" + "'"
+                    System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'"
                             + rightAnswer + "'.\n" + "Let's try again, " + name + "!");
                 }
 
