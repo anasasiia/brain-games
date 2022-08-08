@@ -2,18 +2,18 @@ package hexlet.code.games;
 
 
 public class Progression {
-    static final int maxLengthOfProgression = 5;
-    static final int maxRandomNumber = 30;
+    static final int MAX_LENGTH_PROGRESSION = 5;
+    static final int MAX_RANDOM_NUMBER = 30;
 
     public static String instructionInProgressionGame() {
         return "What number is missing in the progression?";
     }
 
     private static int[] generateProgression() {
-        int length = Math.abs(maxLengthOfProgression + (int) (Math.random() * maxLengthOfProgression));
+        int length = Math.abs(MAX_LENGTH_PROGRESSION + (int) (Math.random() * MAX_LENGTH_PROGRESSION));
         int[] progression = new int[length];
-        progression[0] = Math.abs((int) (Math.random() * (maxRandomNumber + 1)));
-        var index = Math.abs((int) (Math.random() * (maxRandomNumber + 1)));
+        progression[0] = Math.abs((int) (Math.random() * (MAX_RANDOM_NUMBER + 1)));
+        var index = Math.abs((int) (Math.random() * (MAX_RANDOM_NUMBER + 1)));
 
         for (var i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + index;
@@ -69,5 +69,5 @@ public class Progression {
         }
 
         return rightAnswer;
-   }
+    }
 }

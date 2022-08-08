@@ -3,14 +3,14 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class GCD {
-    static final int maxRandomNumber = 50;
+    static final int MAX_RANDOM_NUMBER = 50;
     public static String instructionInGcdGame() {
         return "Find the greatest common divisor of given numbers.";
     }
 
     public static String questionInGcdGame() {
-        var num1 = (int) (Math.random() * (maxRandomNumber) + 1);
-        var num2 = (int) (Math.random() * (maxRandomNumber) + 1);
+        var num1 = (int) (Math.random() * (MAX_RANDOM_NUMBER) + 1);
+        var num2 = (int) (Math.random() * (MAX_RANDOM_NUMBER) + 1);
         return Math.abs(num1) + " " + Math.abs(num2);
     }
 
