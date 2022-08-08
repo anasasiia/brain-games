@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe63654a-8851-4471-bded-9c70f2166769" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/games/GCD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/games/GCD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/Engine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,9 +100,9 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle app:clean" />
+      <command value="gradle checkstyleMain" />
       <command value="gradle clean" />
       <command value="gradle installDist" />
-      <command value="gradle checkstyleMain" />
     </option>
   </component>
   <component name="RunManager" selected="Gradle.app [installDist]">

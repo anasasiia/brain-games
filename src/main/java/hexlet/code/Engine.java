@@ -23,9 +23,7 @@ public class Engine {
 
         if (gameChosen == 1) {
             Cli.getName();
-        } else if (gameChosen == 0) {
-            System.exit(0);
-        } else {
+        } else if (gameChosen == 2 || gameChosen == 3 || gameChosen == 4 || gameChosen == 5 || gameChosen == 6) {
             System.out.println("Welcome to the Brain Games!");
             Scanner nameScanner = new Scanner(System.in);
             System.out.print("May I have your name? ");
@@ -105,6 +103,8 @@ public class Engine {
             } while (rightAnswersCount <= 2);
 
             System.out.println("Congratulations, " + name + "!");
+        } else {
+            System.exit(0);
         }
     }
 }
