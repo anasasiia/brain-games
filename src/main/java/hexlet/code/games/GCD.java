@@ -22,10 +22,25 @@ public class GCD {
 
         var gcd = 0;
 
-        for (var i = y; i > 0; i--) {
-            if (x % i == 0 && y % i == 0) {
-                gcd = i;
-                break;
+        if (x == y) {
+            gcd = x;
+        } else if (x % y == 0) {
+            gcd = y;
+        } else if (y % x == 0) {
+            gcd = x;
+        } else if (x < y) {
+            for (var i = x; i > 0; i--) {
+                if (x % i == 0 && y % i == 0) {
+                    gcd = i;
+                    break;
+                }
+            }
+        } else {
+            for (var i = y; i > 0; i--) {
+                if (x % i == 0 && y % i == 0) {
+                    gcd = i;
+                    break;
+                }
             }
         }
         return gcd;
