@@ -55,7 +55,6 @@ public class Engine {
     public static void getWrongAnswer(String answerFromUser, String rightAnswer) {
         System.out.println("'" + answerFromUser + "'" + " is wrong answer ;(. Correct answer was " + "'"
                 + rightAnswer + "'.\n" + "Let's try again, " + playerName + "!");
-        System.exit(0);
     }
 
     public static void getCongratulations() {
