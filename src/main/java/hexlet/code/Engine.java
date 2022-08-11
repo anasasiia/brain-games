@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Engine {
     private static String playerName;
+    static final int ROUND_COUNT = 3;
 
-    public static int getROUND_COUNT() {
-        return 3;
+    public static int getRoundCount() {
+        return ROUND_COUNT;
     }
 
     public static String getName() {

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class GCD {
     static final int MAX_RANDOM_NUMBER = 50;
-    static String instruction = "Find the greatest common divisor of given numbers.";
+    private static String instruction = "Find the greatest common divisor of given numbers.";
 
 
     public static String questionInGcdGame() {
@@ -27,8 +27,8 @@ public class GCD {
             if (x % i == 0 && y % i == 0) {
                 gcd = i;
                 break;
-                }
             }
+        }
         return String.valueOf(gcd);
     }
 
@@ -52,7 +52,7 @@ public class GCD {
                 Engine.getWrongAnswer(answer, rightAnswer);
             }
 
-        } while (rightAnswersCount < Engine.getROUND_COUNT());
+        } while (rightAnswersCount < Engine.getRoundCount());
 
         Engine.getCongratulations();
     }

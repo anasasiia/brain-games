@@ -7,14 +7,13 @@ import java.util.Scanner;
 public class Calc {
     static final int MAX_OPERATION_COUNT = 3;
     static final int MAX_RANDOM_NUMBER = 30;
+    private static String instruction = "What is the result of the expression?";
 
     private static String getOperation() {
         String[] operators = {"+", "-", "*"};
         var i = (int) (Math.random() * MAX_OPERATION_COUNT);
         return operators[i];
     }
-
-    static String instruction = "What is the result of the expression?";
 
     public static String questionInCalcGame() {
         var num1 = (int) (Math.random() * (MAX_RANDOM_NUMBER + 1));
@@ -62,7 +61,7 @@ public class Calc {
                 Engine.getWrongAnswer(answer, rightAnswer);
             }
 
-        } while (rightAnswersCount < Engine.getROUND_COUNT());
+        } while (rightAnswersCount < Engine.getRoundCount());
 
         Engine.getCongratulations();
     }

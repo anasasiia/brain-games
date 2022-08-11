@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 
 public class Even {
     static final int MAX_RANDOM_NUMBER = 100;
-    static String instruction = "Answer 'yes' if number even otherwise answer 'no'.";
+    private static String instruction = "Answer 'yes' if number even otherwise answer 'no'.";
 
 
     public static String questionInEvenGame() {
@@ -39,7 +39,7 @@ public class Even {
                 Engine.getWrongAnswer(answer, rightAnswer);
             }
 
-        } while (rightAnswersCount < Engine.getROUND_COUNT());
+        } while (rightAnswersCount < Engine.getRoundCount());
 
         Engine.getCongratulations();
     }

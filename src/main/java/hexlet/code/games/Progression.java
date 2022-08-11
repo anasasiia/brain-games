@@ -7,7 +7,7 @@ public class Progression {
     static final int MAX_LENGTH_PROGRESSION = 5;
     static final int MAX_RANDOM_NUMBER = 30;
 
-    static String instruction = "What number is missing in the progression?";
+    private static String instruction = "What number is missing in the progression?";
 
     private static int[] generateProgression() {
         int length = Math.abs(MAX_LENGTH_PROGRESSION + (int) (Math.random() * MAX_LENGTH_PROGRESSION));
@@ -91,7 +91,7 @@ public class Progression {
                 Engine.getWrongAnswer(answer, rightAnswer);
             }
 
-        } while (rightAnswersCount < Engine.getROUND_COUNT());
+        } while (rightAnswersCount < Engine.getRoundCount());
 
         Engine.getCongratulations();
     }

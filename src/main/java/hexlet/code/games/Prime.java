@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 public class Prime {
     static final int MAX_RANDOM_NUMBER = 100;
     static final int MAX_SIMPLE_NUMBER = 9;
-    static String instruction = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static String instruction = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static String questionInPrimeGame() {
         var number = Math.abs((int) (Math.random() * (MAX_RANDOM_NUMBER + 2)));
@@ -47,7 +47,7 @@ public class Prime {
                 Engine.getWrongAnswer(answer, rightAnswer);
             }
 
-        } while (rightAnswersCount < Engine.getROUND_COUNT());
+        } while (rightAnswersCount < Engine.getRoundCount());
 
         Engine.getCongratulations();
     }
