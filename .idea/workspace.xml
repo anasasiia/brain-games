@@ -101,11 +101,11 @@
     <option name="myCommands">
       <command value="gradle app:clean" />
       <command value="gradle clean" />
-      <command value="gradle checkstyleMain" />
       <command value="gradle installDist" />
+      <command value="gradle checkstyleMain" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.app [installDist]">
+  <component name="RunManager" selected="Gradle.app [checkstyleMain]">
     <configuration name="app [app:clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
