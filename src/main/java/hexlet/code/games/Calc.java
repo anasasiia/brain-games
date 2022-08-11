@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Scanner;
 
 public class Calc {
@@ -12,9 +14,7 @@ public class Calc {
         return operators[i];
     }
 
-    public static String instructionInCalcGame() {
-        return "What is the result of the expression?";
-    }
+    static String instruction = "What is the result of the expression?";
 
     public static String questionInCalcGame() {
         var num1 = (int) (Math.random() * (MAX_RANDOM_NUMBER + 1));
@@ -24,19 +24,47 @@ public class Calc {
 
     }
 
-    public static int rightAnswerInCalcGame(String question) {
+    public static String rightAnswerInCalcGame(String question) {
         Scanner scan = new Scanner(question);
         scan.useDelimiter(" ");
         int x = Integer.parseInt(scan.next());
         String operator = scan.next();
         int y = Integer.parseInt(scan.next());
+        int result;
 
-        return switch (operator) {
-            case "+" -> x + y;
-            case "-" -> x - y;
-            case "*" -> x * y;
-            default -> 0;
-        };
+        if (operator.equals("+")) {
+            result = x + y;
+        } else if (operator.equals("-")) {
+            result = x - y;
+        } else {
+            result = x * y;
+        }
+        return String.valueOf(result);
+    }
+
+    public static void playCalcGame() {
+        Engine.getName();
+        Engine.getInstruction(instruction);
+
+        var rightAnswersCount = 0;
+        do {
+            String question = questionInCalcGame();
+            Engine.getQuestion(question);
+            String answer = Engine.getAnswerFromUser();
+            String rightAnswer = rightAnswerInCalcGame(question);
+
+            boolean result = Engine.compareAnswers(answer, rightAnswer);
+
+            if (result) {
+                Engine.getCorrect();
+                rightAnswersCount++;
+            } else {
+                Engine.getWrongAnswer(answer, rightAnswer);
+            }
+
+        } while (rightAnswersCount < Engine.getROUND_COUNT());
+
+        Engine.getCongratulations();
     }
 }
 

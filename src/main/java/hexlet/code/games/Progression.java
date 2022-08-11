@@ -1,13 +1,13 @@
 package hexlet.code.games;
 
 
+import hexlet.code.Engine;
+
 public class Progression {
     static final int MAX_LENGTH_PROGRESSION = 5;
     static final int MAX_RANDOM_NUMBER = 30;
 
-    public static String instructionInProgressionGame() {
-        return "What number is missing in the progression?";
-    }
+    static String instruction = "What number is missing in the progression?";
 
     private static int[] generateProgression() {
         int length = Math.abs(MAX_LENGTH_PROGRESSION + (int) (Math.random() * MAX_LENGTH_PROGRESSION));
@@ -46,7 +46,7 @@ public class Progression {
         return indexHiddenNumber;
     }
 
-    public static int rightAnswerInProgressionGame(String question) {
+    public static String rightAnswerInProgressionGame(String question) {
         String[] progression = question.split(" ");
         var length = progression.length;
         var index = 0;
@@ -68,6 +68,31 @@ public class Progression {
             rightAnswer = Integer.parseInt(progression[0]) + index * hiddenNumber;
         }
 
-        return rightAnswer;
+        return String.valueOf(rightAnswer);
+    }
+
+    public static void playProgressionGame() {
+        Engine.getName();
+        Engine.getInstruction(instruction);
+
+        var rightAnswersCount = 0;
+        do {
+            String question = questionInProgressionGame();
+            Engine.getQuestion(question);
+            String answer = Engine.getAnswerFromUser();
+            String rightAnswer = rightAnswerInProgressionGame(question);
+
+            boolean result = Engine.compareAnswers(answer, rightAnswer);
+
+            if (result) {
+                Engine.getCorrect();
+                rightAnswersCount++;
+            } else {
+                Engine.getWrongAnswer(answer, rightAnswer);
+            }
+
+        } while (rightAnswersCount < Engine.getROUND_COUNT());
+
+        Engine.getCongratulations();
     }
 }

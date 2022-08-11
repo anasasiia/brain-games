@@ -1,5 +1,9 @@
 package hexlet.code;
 
+import hexlet.code.games.*;
+
+import java.util.Scanner;
+
 import static java.lang.System.out;
 
 
@@ -20,6 +24,24 @@ public class App {
         out.println(choicePrime + " - Prime");
         out.println("0 - Exit");
 
-        Engine.games();
+        Scanner choice = new Scanner(System.in);
+        System.out.print("Your choice: ");
+        var gameChosen = choice.nextInt();
+
+        if (gameChosen == 1) {
+            Cli.getName();
+        } else if (gameChosen == choiceEven) {
+            Even.playEvenGame();
+        } else if (gameChosen == choiceCalc) {
+            Calc.playCalcGame();
+        } else if (gameChosen == choiceGCD) {
+            GCD.playGCDGame();
+        } else if (gameChosen == choiceProgression) {
+            Progression.playProgressionGame();
+        } else if (gameChosen == choicePrime) {
+            Prime.playPrimeGame();
+        } else {
+            System.exit(0);
+        }
     }
 }
