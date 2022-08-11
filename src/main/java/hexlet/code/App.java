@@ -8,13 +8,12 @@ import static java.lang.System.out;
 
 
 public class App {
+    static final int choiceEven = 2;
+    static final int choiceCalc = 3;
+    static final int choiceGCD = 4;
+    static final int choiceProgression = 5;
+    static final int choicePrime = 6;
     public static void main(String[] args) {
-        final int choiceEven = 2;
-        final int choiceCalc = 3;
-        final int choiceGCD = 4;
-        final int choiceProgression = 5;
-        final int choicePrime = 6;
-
         out.println("Please enter the game number and press Enter.");
         out.println("1 - Greet");
         out.println(choiceEven + " - Even");

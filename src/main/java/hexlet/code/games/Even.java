@@ -3,10 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-
     static final int MAX_RANDOM_NUMBER = 100;
     static String instruction = "Answer 'yes' if number even otherwise answer 'no'.";
-    //static int ROUNDS_COUNT = 3;
 
 
     public static String questionInEvenGame() {
@@ -15,14 +13,10 @@ public class Even {
     }
 
     public static String rightAnswerInEvenGame(String number) {
-        String answer;
-
         if (Integer.parseInt(number) % 2 == 0) {
-            answer = "yes";
-        } else {
-            answer = "no";
+            return "yes";
         }
-        return answer;
+        return "no";
     }
 
     public static void playEvenGame() {
