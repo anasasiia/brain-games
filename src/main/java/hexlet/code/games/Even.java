@@ -3,12 +3,11 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-    static final int MAX_RANDOM_NUMBER = 100;
     private static String instruction = "Answer 'yes' if number even otherwise answer 'no'.";
 
 
     public static String questionInEvenGame() {
-        var number = (int) (Math.random() * (MAX_RANDOM_NUMBER + 1));
+        var number = (int) (Math.random() * (Engine.getMaxRandomNumber() + 1));
         return Integer.toString(number);
     }
 

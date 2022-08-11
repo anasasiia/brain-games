@@ -5,9 +5,14 @@ import java.util.Scanner;
 public class Engine {
     private static String playerName;
     static final int ROUND_COUNT = 3;
+    static final int MAX_RANDOM_NUMBER = 50;
 
     public static int getRoundCount() {
         return ROUND_COUNT;
+    }
+
+    public static int getMaxRandomNumber() {
+        return MAX_RANDOM_NUMBER;
     }
 
     public static String getName() {

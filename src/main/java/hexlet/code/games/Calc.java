@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Calc {
     static final int MAX_OPERATION_COUNT = 3;
-    static final int MAX_RANDOM_NUMBER = 30;
     private static String instruction = "What is the result of the expression?";
 
     private static String getOperation() {
@@ -16,8 +15,8 @@ public class Calc {
     }
 
     public static String questionInCalcGame() {
-        var num1 = (int) (Math.random() * (MAX_RANDOM_NUMBER + 1));
-        var num2 = (int) (Math.random() * (MAX_RANDOM_NUMBER + 1));
+        var num1 = (int) (Math.random() * (Engine.getMaxRandomNumber() + 1));
+        var num2 = (int) (Math.random() * (Engine.getMaxRandomNumber() + 1));
         var operation = getOperation();
         return num1 + " " + operation + " " + num2;
 

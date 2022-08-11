@@ -5,13 +5,12 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class GCD {
-    static final int MAX_RANDOM_NUMBER = 50;
     private static String instruction = "Find the greatest common divisor of given numbers.";
 
 
     public static String questionInGcdGame() {
-        var num1 = (int) (Math.random() * (MAX_RANDOM_NUMBER) + 1);
-        var num2 = (int) (Math.random() * (MAX_RANDOM_NUMBER) + 1);
+        var num1 = (int) (Math.random() * (Engine.getMaxRandomNumber()) + 1);
+        var num2 = (int) (Math.random() * (Engine.getMaxRandomNumber()) + 1);
         return Math.abs(num1) + " " + Math.abs(num2);
     }
 

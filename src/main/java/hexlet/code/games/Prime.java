@@ -3,12 +3,11 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    static final int MAX_RANDOM_NUMBER = 100;
-    static final int MAX_SIMPLE_NUMBER = 9;
+    static final int MAX_SIMPLE_NUMBER = 11;
     private static String instruction = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static String questionInPrimeGame() {
-        var number = Math.abs((int) (Math.random() * (MAX_RANDOM_NUMBER + 2)));
+        var number = Math.abs((int) (Math.random() * (Engine.getMaxRandomNumber() + 2)));
         return Integer.toString(number);
     }
 

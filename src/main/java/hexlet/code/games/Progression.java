@@ -5,15 +5,14 @@ import hexlet.code.Engine;
 
 public class Progression {
     static final int MAX_LENGTH_PROGRESSION = 5;
-    static final int MAX_RANDOM_NUMBER = 30;
 
     private static String instruction = "What number is missing in the progression?";
 
     private static int[] generateProgression() {
         int length = Math.abs(MAX_LENGTH_PROGRESSION + (int) (Math.random() * MAX_LENGTH_PROGRESSION));
         int[] progression = new int[length];
-        progression[0] = Math.abs((int) (Math.random() * (MAX_RANDOM_NUMBER + 1)));
-        var index = Math.abs((int) (Math.random() * (MAX_RANDOM_NUMBER + 1)));
+        progression[0] = Math.abs((int) (Math.random() * (Engine.getMaxRandomNumber() + 1)));
+        var index = Math.abs((int) (Math.random() * (Engine.getMaxRandomNumber() + 1)));
 
         for (var i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + index;
