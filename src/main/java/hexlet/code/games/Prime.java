@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    static final int MAX_SIMPLE_NUMBER = 11;
     private static String instruction = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static String questionInPrimeGame() {
@@ -16,13 +15,12 @@ public class Prime {
         int i = 2;
 
         do {
-            var surplus = number % i;
-            if (surplus == 0) {
+            if (number % i == 0) {
                 return "no";
             } else {
                 i++;
             }
-        } while (i <= MAX_SIMPLE_NUMBER);
+        } while (i < number);
         return "yes";
     }
 
