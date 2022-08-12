@@ -3,11 +3,12 @@
 
 <a href="https://codeclimate.com/github/anasasiia/java-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/9a49e4a4c21b202b615a/maintainability"/></a>
 
-https://asciinema.org/connect/df48f4c1-8fbd-42af-ae96-2d7f511142fa
-https://asciinema.org/connect/df48f4c1-8fbd-42af-ae96-2d7f511142fa
-https://asciinema.org/connect/df48f4c1-8fbd-42af-ae96-2d7f511142fa
-https://asciinema.org/connect/df48f4c1-8fbd-42af-ae96-2d7f511142fa
-https://asciinema.org/connect/df48f4c1-8fbd-42af-ae96-2d7f511142fa
-https://asciinema.org/connect/df48f4c1-8fbd-42af-ae96-2d7f511142fa
 
 
+
+https://asciinema.org/a/GsmLpbfylsMfmBa6MC55DVbur
+https://asciinema.org/a/YZQKrRR1B3SUM2eOHTEDuxQfi
+https://asciinema.org/a/E5MgOLhwyJxYgCsoH99fC3HLV
+https://asciinema.org/a/CheerPOXwrUCh0sPlTnswISL4
+https://asciinema.org/a/KBvRkwdeGHA2STTR4kDaMI5sZ
+https://asciinema.org/a/PUXKRqTyX3pCsfnS2c2AdjPlL
