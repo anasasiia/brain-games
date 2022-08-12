@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Calc {
     static final int MAX_OPERATION_COUNT = 3;
-    private static String instruction = "What is the result of the expression?";
+    private static final String INSTRUCTION = "What is the result of the expression?";
 
     private static String getOperation() {
         String[] operators = {"+", "-", "*"};
@@ -42,7 +42,7 @@ public class Calc {
 
     public static void playCalcGame() {
         Engine.getName();
-        Engine.getInstruction(instruction);
+        Engine.getInstruction(INSTRUCTION);
 
         var rightAnswersCount = 0;
         do {

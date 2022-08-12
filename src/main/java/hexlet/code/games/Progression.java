@@ -6,7 +6,7 @@ import hexlet.code.Engine;
 public class Progression {
     static final int MAX_LENGTH_PROGRESSION = 5;
 
-    private static String instruction = "What number is missing in the progression?";
+    private static final String INSTRUCTION = "What number is missing in the progression?";
 
     private static int[] generateProgression() {
         int length = Math.abs(MAX_LENGTH_PROGRESSION + (int) (Math.random() * MAX_LENGTH_PROGRESSION));
@@ -72,7 +72,7 @@ public class Progression {
 
     public static void playProgressionGame() {
         Engine.getName();
-        Engine.getInstruction(instruction);
+        Engine.getInstruction(INSTRUCTION);
 
         var rightAnswersCount = 0;
         do {
