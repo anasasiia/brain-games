@@ -3,63 +3,48 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static String playerName;
-    static final int ROUND_COUNT = 3;
+    public static final int ROUND_COUNT = 3;
     static final int MAX_RANDOM_NUMBER = 50;
-
-    public static int getRoundCount() {
-        return ROUND_COUNT;
-    }
 
     public static int getMaxRandomNumber() {
         return MAX_RANDOM_NUMBER;
     }
 
-    public static String getName() {
+
+    public static void runGame(String instruction, String[] questions, String[] answers) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner nameScanner = new Scanner(System.in);
-        playerName = nameScanner.nextLine();
+        String playerName = nameScanner.nextLine();
         System.out.println("Hello, " + playerName + "!");
-        return playerName;
-    }
 
-    public static void getInstruction(String instruction) {
         System.out.println(instruction);
-    }
+        int index1 = 0;
+        int index2 = 0;
+        for (var rightAnswersCount = 0; rightAnswersCount < ROUND_COUNT; rightAnswersCount++) {
+            System.out.println("Question: " + questions[index1]);
 
-    public static void getQuestion(String question) {
-        System.out.println("Question: " + question);
-    }
+            Scanner answerInGame = new Scanner(System.in);
+            System.out.print("Your answer: ");
+            String answerFromUser;
+            if (answerInGame.hasNextInt()) {
+                answerFromUser = String.valueOf(answerInGame.nextInt());
+            } else {
+                answerFromUser = answerInGame.nextLine();
+            }
 
-    public static String getAnswerFromUser() {
-        Scanner answerInGame = new Scanner(System.in);
-        System.out.print("Your answer: ");
-        String answerFromUser;
-        if (answerInGame.hasNextInt()) {
-            answerFromUser = String.valueOf(answerInGame.nextInt());
-        } else {
-            answerFromUser = answerInGame.nextLine();
+            if (answerFromUser.equals(answers[index2])) {
+                System.out.println("Correct!");
+                index1++;
+                index2++;
+            } else {
+                System.out.println("'" + answerFromUser + "'" + " is wrong answer ;(. Correct answer was " + "'"
+                        + answers[index2] + "'.\n" + "Let's try again, " + playerName + "!");
+                System.exit(0);
+            }
+            System.out.println("Congratulations, " + playerName + "!");
         }
-        return answerFromUser;
-    }
 
-    public static boolean compareAnswers(String answerFromUser, String rightAnswer) {
-        return answerFromUser.equals(rightAnswer);
-    }
-
-    public static void getCorrect() {
-        System.out.println("Correct!");
-    }
-
-    public static void getWrongAnswer(String answerFromUser, String rightAnswer) {
-        System.out.println("'" + answerFromUser + "'" + " is wrong answer ;(. Correct answer was " + "'"
-                + rightAnswer + "'.\n" + "Let's try again, " + playerName + "!");
-        System.exit(0);
-    }
-
-    public static void getCongratulations() {
-        System.out.println("Congratulations, " + playerName + "!");
     }
 
 }

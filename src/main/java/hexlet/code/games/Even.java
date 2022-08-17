@@ -3,47 +3,43 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-    private static final String INSTRUCTION = "Answer 'yes' if number even otherwise answer 'no'.";
+    public static final String INSTRUCTION = "Answer 'yes' if number even otherwise answer 'no'.";
+    public static String[] questions = questionsInEvenGame();
+    public static String[] answers = answersInEvenGame(questions);
 
 
-    public static String questionInEvenGame() {
-        var number = (int) (Math.random() * (Engine.getMaxRandomNumber() + 1));
+    public static String generateQuestionInEvenGame() {
+        var number = (int) ((Math.random() * Engine.getMaxRandomNumber()) + 1);
         return Integer.toString(number);
     }
 
-    public static String rightAnswerInEvenGame(String number) {
-        if (Integer.parseInt(number) % 2 == 0) {
-            return "yes";
+    public static String[] questionsInEvenGame() {
+        String[] questions = new String[Engine.ROUND_COUNT];
+        for (var i = 0; i < questions.length; i++) {
+            questions[i] = generateQuestionInEvenGame();
         }
-        return "no";
+        return questions;
     }
 
-    public static void playEvenGame() {
-        Engine.getName();
-        Engine.getInstruction(INSTRUCTION);
-
-        var rightAnswersCount = 0;
-        do {
-            String question = questionInEvenGame();
-            Engine.getQuestion(question);
-            String answer = Engine.getAnswerFromUser();
-            String rightAnswer = rightAnswerInEvenGame(question);
-
-            boolean result = Engine.compareAnswers(answer, rightAnswer);
-
-            if (result) {
-                Engine.getCorrect();
-                rightAnswersCount++;
+    public static String[] answersInEvenGame(String[] questions) {
+        String[] answers = new String[Engine.ROUND_COUNT];
+        int index = 0;
+        for (var question : questions) {
+            if (Integer.parseInt(question) % 2 == 0) {
+                answers[index] = "yes";
             } else {
-                Engine.getWrongAnswer(answer, rightAnswer);
+                answers[index] = "no";
             }
-
-        } while (rightAnswersCount < Engine.getRoundCount());
-
-        Engine.getCongratulations();
+            index++;
+        }
+        return answers;
     }
 
 }
+
+
+
+
 
 
 

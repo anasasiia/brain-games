@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 public class Calc {
     static final int MAX_OPERATION_COUNT = 3;
-    private static final String INSTRUCTION = "What is the result of the expression?";
+    public static final String INSTRUCTION = "What is the result of the expression?";
+    public static String[] questions = questionsInCalcGame();
+    public static String[] answers = answersInCalcGame(questions);
 
     private static String getOperation() {
         String[] operators = {"+", "-", "*"};
@@ -14,55 +16,41 @@ public class Calc {
         return operators[i];
     }
 
-    public static String questionInCalcGame() {
+    public static String generateQuestionInCalcGame() {
         var num1 = (int) (Math.random() * (Engine.getMaxRandomNumber() + 1));
         var num2 = (int) (Math.random() * (Engine.getMaxRandomNumber() + 1));
         var operation = getOperation();
         return num1 + " " + operation + " " + num2;
-
     }
 
-    public static String rightAnswerInCalcGame(String question) {
-        Scanner scan = new Scanner(question);
-        scan.useDelimiter(" ");
-        int x = Integer.parseInt(scan.next());
-        String operator = scan.next();
-        int y = Integer.parseInt(scan.next());
-        int result;
-
-        if (operator.equals("+")) {
-            result = x + y;
-        } else if (operator.equals("-")) {
-            result = x - y;
-        } else {
-            result = x * y;
+    public static String[] questionsInCalcGame() {
+        String[] questions = new String[Engine.ROUND_COUNT];
+        for (var i = 0; i < questions.length; i++) {
+            questions[i] = generateQuestionInCalcGame();
         }
-        return String.valueOf(result);
+        return questions;
     }
 
-    public static void playCalcGame() {
-        Engine.getName();
-        Engine.getInstruction(INSTRUCTION);
+    public static String[] answersInCalcGame(String[] questions) {
+        String[] answers = new String[Engine.ROUND_COUNT];
+        int index = 0;
+        for (var question : questions) {
+            Scanner scan = new Scanner(question);
+            scan.useDelimiter(" ");
+            int x = Integer.parseInt(scan.next());
+            String operator = scan.next();
+            int y = Integer.parseInt(scan.next());
 
-        var rightAnswersCount = 0;
-        do {
-            String question = questionInCalcGame();
-            Engine.getQuestion(question);
-            String answer = Engine.getAnswerFromUser();
-            String rightAnswer = rightAnswerInCalcGame(question);
-
-            boolean result = Engine.compareAnswers(answer, rightAnswer);
-
-            if (result) {
-                Engine.getCorrect();
-                rightAnswersCount++;
+            if (operator.equals("+")) {
+                answers[index] = String.valueOf(x + y);
+            } else if (operator.equals("-")) {
+                answers[index] = String.valueOf(x - y);
             } else {
-                Engine.getWrongAnswer(answer, rightAnswer);
+                answers[index] = String.valueOf(x * y);
             }
-
-        } while (rightAnswersCount < Engine.getRoundCount());
-
-        Engine.getCongratulations();
+            index++;
+        }
+        return answers;
     }
 }
 
