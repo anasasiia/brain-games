@@ -42,8 +42,8 @@ public class Engine {
                         + answers[answerIndex] + "'.\n" + "Let's try again, " + playerName + "!");
                 System.exit(0);
             }
-            System.out.println("Congratulations, " + playerName + "!");
         }
+        System.out.println("Congratulations, " + playerName + "!");
     }
 }
 

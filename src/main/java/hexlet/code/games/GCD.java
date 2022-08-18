@@ -54,6 +54,7 @@ public class GCD {
             }
             answers[index] = String.valueOf(gcd);
             index++;
+            scan.close();
         }
         return answers;
     }

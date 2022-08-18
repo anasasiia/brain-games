@@ -61,6 +61,7 @@ public class Calc {
                 answers[index] = String.valueOf(x * y);
             }
             index++;
+            scan.close();
         }
         return answers;
     }
