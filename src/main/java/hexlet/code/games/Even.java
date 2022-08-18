@@ -3,10 +3,21 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-    public static final String INSTRUCTION = "Answer 'yes' if number even otherwise answer 'no'.";
-    public static String[] questions = questionsInEvenGame();
-    public static String[] answers = answersInEvenGame(questions);
+    private static final String INSTRUCTION = "Answer 'yes' if number even otherwise answer 'no'.";
+    private static final String[] QUESTIONS = questionsInEvenGame();
+    private static final String[] ANSWERS = answersInEvenGame(QUESTIONS);
 
+    public static String[] getQuestions() {
+        return QUESTIONS;
+    }
+
+    public static String[] getAnswers() {
+        return ANSWERS;
+    }
+
+    public static String getInstruction() {
+        return INSTRUCTION;
+    }
 
     public static String generateQuestionInEvenGame() {
         var number = (int) ((Math.random() * Engine.getMaxRandomNumber()) + 1);

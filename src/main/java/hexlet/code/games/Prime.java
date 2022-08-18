@@ -3,9 +3,21 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    public static final String INSTRUCTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    public static String[] questions = questionsInPrimeGame();
-    public static String[] answers = answersInPrimeGame(questions);
+    private static final String INSTRUCTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String[] QUESTIONS = questionsInPrimeGame();
+    private static final String[] ANSWERS = answersInPrimeGame(QUESTIONS);
+
+    public static String[] getAnswers() {
+        return ANSWERS;
+    }
+
+    public static String[] getQuestions() {
+        return QUESTIONS;
+    }
+
+    public static String getInstruction() {
+        return INSTRUCTION;
+    }
 
     public static String generateQuestionInPrimeGame() {
         var question = (int) Math.abs((Math.random() * Engine.getMaxRandomNumber()) + 2);
@@ -36,5 +48,4 @@ public class Prime {
         }
         return answers;
     }
-
 }

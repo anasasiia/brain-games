@@ -5,9 +5,21 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class GCD {
-    public static final String INSTRUCTION = "Find the greatest common divisor of given numbers.";
-    public static String[] questions = questionsInGcdGame();
-    public static String[] answers = answersInGcdGame(questions);
+    private static final String INSTRUCTION = "Find the greatest common divisor of given numbers.";
+    private static final String[] QUESTIONS = questionsInGcdGame();
+    private static final String[] ANSWERS = answersInGcdGame(QUESTIONS);
+
+    public static String[] getAnswers() {
+        return ANSWERS;
+    }
+
+    public static String[] getQuestions() {
+        return QUESTIONS;
+    }
+
+    public static String getInstruction() {
+        return INSTRUCTION;
+    }
 
 
     public static String generateQuestionInGcdGame() {
@@ -45,6 +57,4 @@ public class GCD {
         }
         return answers;
     }
-
-
 }

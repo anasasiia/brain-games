@@ -6,9 +6,21 @@ import java.util.Scanner;
 
 public class Calc {
     static final int MAX_OPERATION_COUNT = 3;
-    public static final String INSTRUCTION = "What is the result of the expression?";
-    public static String[] questions = questionsInCalcGame();
-    public static String[] answers = answersInCalcGame(questions);
+    private static final String INSTRUCTION = "What is the result of the expression?";
+    private static final String[] QUESTIONS = questionsInCalcGame();
+    private static final String[] ANSWERS = answersInCalcGame(QUESTIONS);
+
+    public static String[] getQuestions() {
+        return QUESTIONS;
+    }
+
+    public static String[] getAnswers() {
+        return ANSWERS;
+    }
+
+    public static String getInstruction() {
+        return INSTRUCTION;
+    }
 
     private static String getOperation() {
         String[] operators = {"+", "-", "*"};

@@ -4,12 +4,23 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 
-public class Progression {
+public class Progres {
     static final int MAX_LENGTH_PROGRESSION = 5;
+    private static final String INSTRUCTION = "What number is missing in the progression?";
+    private static final String[] QUESTIONS = questionsInProgressionGame();
+    private static final String[] ANSWERS = answersInProgressionGame(QUESTIONS);
 
-    public static final String INSTRUCTION = "What number is missing in the progression?";
-    public static String[] questions = questionsInProgressionGame();
-    public static String[] answers = answersInProgressionGame(questions);
+    public static String[] getQuestions() {
+        return QUESTIONS;
+    }
+
+    public static String[] getAnswers() {
+        return ANSWERS;
+    }
+
+    public static String getInstruct() {
+        return INSTRUCTION;
+    }
 
     private static int[] generateProgression() {
         int length = Math.abs(MAX_LENGTH_PROGRESSION + (int) (Math.random() * MAX_LENGTH_PROGRESSION));
@@ -85,6 +96,4 @@ public class Progression {
         }
         return answers;
     }
-
-
 }
