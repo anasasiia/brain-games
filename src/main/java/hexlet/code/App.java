@@ -4,10 +4,9 @@ import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Prime;
-import hexlet.code.games.Progres;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
-
 import static java.lang.System.out;
 
 
@@ -16,7 +15,7 @@ public class App {
     static final int CHOICE_EVEN = 2;
     static final int CHOICE_CALC = 3;
     static final int CHOICE_GCD = 4;
-    static final int CHOICE_PROGRES = 5;
+    static final int CHOICE_PROGRESSION = 5;
     static final int CHOICE_PRIME = 6;
 
     public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class App {
         out.println(CHOICE_EVEN + " - Even");
         out.println(CHOICE_CALC + " - Calc");
         out.println(CHOICE_GCD + " - GCD");
-        out.println(CHOICE_PROGRES + " - Progression");
+        out.println(CHOICE_PROGRESSION + " - Progression");
         out.println(CHOICE_PRIME + " - Prime");
         out.println("0 - Exit");
 
@@ -35,11 +34,11 @@ public class App {
 
         switch (gameChosen) {
             case CHOICE_CLI -> Cli.greetUser();
-            case CHOICE_EVEN -> Engine.runGame(Even.getInstruction(), Even.getQuestions(), Even.getAnswers());
-            case CHOICE_CALC -> Engine.runGame(Calc.getInstruction(), Calc.getQuestions(), Calc.getAnswers());
-            case CHOICE_GCD -> Engine.runGame(GCD.getInstruction(), GCD.getQuestions(), GCD.getAnswers());
-            case CHOICE_PROGRES -> Engine.runGame(Progres.getInstruct(), Progres.getQuestions(), Progres.getAnswers());
-            case CHOICE_PRIME -> Engine.runGame(Prime.getInstruction(), Prime.getQuestions(), Prime.getAnswers());
+            case CHOICE_EVEN -> Even.runEven();
+            case CHOICE_CALC -> Calc.runCalc();
+            case CHOICE_GCD -> GCD.runGCD();
+            case CHOICE_PROGRESSION -> Progression.runProgression();
+            case CHOICE_PRIME -> Prime.runPrime();
             default -> System.exit(0);
         }
         choice.close();

@@ -4,13 +4,8 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUND_COUNT = 3;
-    static final int MAX_RANDOM_NUMBER = 50;
-    public static int getMaxRandomNumber() {
-        return MAX_RANDOM_NUMBER;
-    }
 
-
-    public static void runGame(String instruction, String[] questions, String[] answers) {
+    public static void runGame(String instruction, String[][] gameQA) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner nameScanner = new Scanner(System.in);
@@ -18,10 +13,9 @@ public class Engine {
         System.out.println("Hello, " + playerName + "!");
 
         System.out.println(instruction);
-        int questionIndex = 0;
-        int answerIndex = 0;
+        int index = 0;
         for (var rightAnswersCount = 0; rightAnswersCount < ROUND_COUNT; rightAnswersCount++) {
-            System.out.println("Question: " + questions[questionIndex]);
+            System.out.println("Question: " + gameQA[index][0]);
 
             Scanner answerInGame = new Scanner(System.in);
             System.out.print("Your answer: ");
@@ -33,13 +27,12 @@ public class Engine {
                 answerFromUser = answerInGame.nextLine();
             }
 
-            if (answerFromUser.equals(answers[answerIndex])) {
+            if (answerFromUser.equals(gameQA[index][1])) {
                 System.out.println("Correct!");
-                questionIndex++;
-                answerIndex++;
+                index++;
             } else {
                 System.out.println("'" + answerFromUser + "'" + " is wrong answer ;(. Correct answer was " + "'"
-                        + answers[answerIndex] + "'.\n" + "Let's try again, " + playerName + "!");
+                        + gameQA[index][1] + "'.\n" + "Let's try again, " + playerName + "!");
                 System.exit(0);
             }
         }

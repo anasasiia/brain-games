@@ -1,69 +1,42 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Scanner;
+import hexlet.code.Utils;
 
 public class Calc {
-    static final int MAX_OPERATION_COUNT = 3;
+    static final int MAX_OPERATOR_COUNT = 3;
+    private static final int MAX_RANDOM_NUMBER = 50;
     private static final String INSTRUCTION = "What is the result of the expression?";
-    private static final String[] QUESTIONS = questionsInCalcGame();
-    private static final String[] ANSWERS = answersInCalcGame(QUESTIONS);
+    private static final String[] OPERATORS = {"+", "-", "*"};
 
-    public static String[] getQuestions() {
-        return QUESTIONS;
+    private static String getOperator() {
+        int i = Utils.generateRandomNumber(MAX_OPERATOR_COUNT);
+        return Calc.OPERATORS[i];
     }
 
-    public static String[] getAnswers() {
-        return ANSWERS;
+
+    private static String calculate(int number1, int number2, String operator) {
+        return switch (operator) {
+            case "+" -> Integer.toString(number1 + number2);
+            case "-" -> Integer.toString(number1 - number2);
+            case "*" -> Integer.toString(number1 * number2);
+            default -> "Unexpected value";
+        };
     }
 
-    public static String getInstruction() {
-        return INSTRUCTION;
-    }
-
-    private static String getOperation() {
-        String[] operators = {"+", "-", "*"};
-        var i = (int) (Math.random() * MAX_OPERATION_COUNT);
-        return operators[i];
-    }
-
-    public static String generateQuestionInCalcGame() {
-        var num1 = (int) (Math.random() * (Engine.getMaxRandomNumber() + 1));
-        var num2 = (int) (Math.random() * (Engine.getMaxRandomNumber() + 1));
-        var operation = getOperation();
-        return num1 + " " + operation + " " + num2;
-    }
-
-    public static String[] questionsInCalcGame() {
-        String[] questions = new String[Engine.ROUND_COUNT];
-        for (var i = 0; i < questions.length; i++) {
-            questions[i] = generateQuestionInCalcGame();
+    public static void runCalc() {
+        String[][] calcQA = new String[Engine.ROUND_COUNT][2];
+        for (var i = 0; i < Engine.ROUND_COUNT; i++) {
+            int num1 = Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1;
+            int num2 = Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1;
+            String operator = getOperator();
+            calcQA[i][0] = num1 + " " + operator + " " + num2;
+            calcQA[i][1] = calculate(num1, num2, operator);
         }
-        return questions;
+        Engine.runGame(INSTRUCTION, calcQA);
     }
 
-    public static String[] answersInCalcGame(String[] questions) {
-        String[] answers = new String[Engine.ROUND_COUNT];
-        int index = 0;
-        for (var question : questions) {
-            Scanner scan = new Scanner(question);
-            scan.useDelimiter(" ");
-            int x = Integer.parseInt(scan.next());
-            String operator = scan.next();
-            int y = Integer.parseInt(scan.next());
-
-            if (operator.equals("+")) {
-                answers[index] = String.valueOf(x + y);
-            } else if (operator.equals("-")) {
-                answers[index] = String.valueOf(x - y);
-            } else {
-                answers[index] = String.valueOf(x * y);
-            }
-            index++;
-            scan.close();
-        }
-        return answers;
-    }
 }
+
+
 

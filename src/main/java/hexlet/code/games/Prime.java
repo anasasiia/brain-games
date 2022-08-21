@@ -1,51 +1,36 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
     private static final String INSTRUCTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final String[] QUESTIONS = questionsInPrimeGame();
-    private static final String[] ANSWERS = answersInPrimeGame(QUESTIONS);
+    private static final int MAX_RANDOM_NUMBER = 100;
 
-    public static String[] getAnswers() {
-        return ANSWERS;
-    }
-
-    public static String[] getQuestions() {
-        return QUESTIONS;
-    }
-
-    public static String getInstruction() {
-        return INSTRUCTION;
-    }
-
-    public static String generateQuestionInPrimeGame() {
-        var question = (int) Math.abs((Math.random() * Engine.getMaxRandomNumber()) + 2);
-        return Integer.toString(question);
-    }
-
-    public static String[] questionsInPrimeGame() {
-        String[] questions = new String[Engine.ROUND_COUNT];
-        for (var i = 0; i < questions.length; i++) {
-            questions[i] = generateQuestionInPrimeGame();
-        }
-        return questions;
-    }
-
-    public static String[] answersInPrimeGame(String[] questions) {
-        String[] answers = new String[Engine.ROUND_COUNT];
-        int answersIndex = 0;
-
-        for (var questionIndex = 0; questionIndex < questions.length; questionIndex++) {
-            for (int i = 2; i < Integer.parseInt(questions[questionIndex]); i++) {
-                if (Integer.parseInt(questions[questionIndex]) % i == 0) {
-                    answers[answersIndex] = "no";
-                    break;
+    private static boolean isNumberPrime(String number) {
+        if (Integer.parseInt(number) < 2) {
+            return false;
+        } else {
+            for (int i = 2; i < Integer.parseInt(number); i++) {
+                if (Integer.parseInt(number) % i == 0) {
+                    return false;
                 }
-                answers[answersIndex] = "yes";
             }
-            answersIndex++;
+            return true;
         }
-        return answers;
+    }
+
+    public static void runPrime() {
+        String[][] primeQA = new String[Engine.ROUND_COUNT][2];
+        for (var i = 0; i < Engine.ROUND_COUNT; i++) {
+            primeQA[i][0] = Integer.toString(Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1);
+            if (isNumberPrime(primeQA[i][0])) {
+                primeQA[i][1] = "yes";
+            } else {
+                primeQA[i][1] = "no";
+            }
+        }
+        Engine.runGame(INSTRUCTION, primeQA);
+
     }
 }

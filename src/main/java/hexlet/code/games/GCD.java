@@ -1,61 +1,43 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Scanner;
 
 public class GCD {
     private static final String INSTRUCTION = "Find the greatest common divisor of given numbers.";
-    private static final String[] QUESTIONS = questionsInGcdGame();
-    private static final String[] ANSWERS = answersInGcdGame(QUESTIONS);
-
-    public static String[] getAnswers() {
-        return ANSWERS;
-    }
-
-    public static String[] getQuestions() {
-        return QUESTIONS;
-    }
-
-    public static String getInstruction() {
-        return INSTRUCTION;
-    }
-
+    private static final int MAX_RANDOM_NUMBER = 100;
 
     public static String generateQuestionInGcdGame() {
-        var num1 = (int) (Math.random() * (Engine.getMaxRandomNumber()) + 1);
-        var num2 = (int) (Math.random() * (Engine.getMaxRandomNumber()) + 1);
+        int num1 = Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1;
+        int num2 = Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1;
         return Math.abs(num1) + " " + Math.abs(num2);
     }
 
-    public static String[] questionsInGcdGame() {
-        String[] questions = new String[Engine.ROUND_COUNT];
-        for (var i = 0; i < questions.length; i++) {
-            questions[i] = generateQuestionInGcdGame();
+    private static String getGCD(String question) {
+        Scanner scan = new Scanner(question);
+        scan.useDelimiter(" ");
+        int x = Integer.parseInt(scan.next());
+        int y = Integer.parseInt(scan.next());
+        int gcd = 0;
+
+        for (var i = y; i > 0; i--) {
+            if (x % i == 0 && y % i == 0) {
+                gcd = i;
+                break;
+            }
         }
-        return questions;
+        scan.close();
+        return String.valueOf(gcd);
     }
 
-    public static String[] answersInGcdGame(String[] questions) {
-        String[] answers = new String[Engine.ROUND_COUNT];
-        int index = 0;
-        for (var question : questions) {
-            Scanner scan = new Scanner(question);
-            scan.useDelimiter(" ");
-            int x = Integer.parseInt(scan.next());
-            int y = Integer.parseInt(scan.next());
-            int gcd = 0;
-
-            for (var i = y; i > 0; i--) {
-                if (x % i == 0 && y % i == 0) {
-                    gcd = i;
-                    break;
-                }
-            }
-            answers[index] = String.valueOf(gcd);
-            index++;
-            scan.close();
+    public static void runGCD() {
+        String[][] gcdQA = new String[Engine.ROUND_COUNT][2];
+        for (var i = 0; i < Engine.ROUND_COUNT; i++) {
+            gcdQA[i][0] = generateQuestionInGcdGame();
+            gcdQA[i][1] = getGCD(gcdQA[i][0]);
         }
-        return answers;
+        Engine.runGame(INSTRUCTION, gcdQA);
     }
 }
