@@ -8,15 +8,16 @@ public class Progression {
     private static final int MAX_RANDOM_NUMBER = 50;
     private static final String INSTRUCTION = "What number is missing in the progression?";
 
-    private static String generateProgression(int length, int firstElement, int index) {
+    private static int[] generateProgression(int length, int firstElement, int index) {
         int[] progression = new int[length];
         progression[0] = firstElement;
         for (var i = 1; i < progression.length; i++) {
-            progression[i] = progression[i - 1] + index;
+            progression[i] = progression[0] + (index * i);
         }
+        return progression;
+    }
 
-        int hiddenNumber = Math.abs(Utils.generateRandomNumber(progression.length));
-
+    private static String hideNumber(int[] progression, int hiddenNumber) {
         var result = new StringBuilder();
         for (var i = 0; i < progression.length; i++) {
             if (i == hiddenNumber) {
@@ -29,23 +30,16 @@ public class Progression {
         return result.toString();
     }
 
-    private static int getHiddenNumber(String progression) {
-        String[] question = progression.split(" ");
-        var indexHiddenNumber = 0;
-        while (indexHiddenNumber < question.length && !question[indexHiddenNumber].equals("..")) {
-            indexHiddenNumber++;
-        }
-        return indexHiddenNumber;
-    }
-
     public static void runProgression() {
         String[][] progressionQA = new String[Engine.ROUND_COUNT][2];
         for (var i = 0; i < Engine.ROUND_COUNT; i++) {
             int length = Math.abs(MAX_LENGTH_PROGRESSION + Utils.generateRandomNumber(MAX_LENGTH_PROGRESSION));
             int firstElement = Math.abs(Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1);
             int index = Math.abs(Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1);
-            progressionQA[i][0] = generateProgression(length, firstElement, index);
-            progressionQA[i][1] = String.valueOf(firstElement + (index * getHiddenNumber(progressionQA[i][0])));
+            int[] progression = generateProgression(length, firstElement, index);
+            int hiddenNumber = Math.abs(Utils.generateRandomNumber(progression.length));
+            progressionQA[i][0] = hideNumber(progression, hiddenNumber);
+            progressionQA[i][1] = String.valueOf(progression[hiddenNumber]);
         }
         Engine.runGame(INSTRUCTION, progressionQA);
     }

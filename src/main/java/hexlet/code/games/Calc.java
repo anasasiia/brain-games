@@ -14,14 +14,21 @@ public class Calc {
         return Calc.OPERATORS[i];
     }
 
-
-    private static String calculate(int number1, int number2, String operator) {
-        return switch (operator) {
-            case "+" -> Integer.toString(number1 + number2);
-            case "-" -> Integer.toString(number1 - number2);
-            case "*" -> Integer.toString(number1 * number2);
-            default -> "Unexpected value";
-        };
+    private static int calculate(int number1, int number2, String operator) {
+        int result = 0;
+        switch (operator) {
+            case "+" -> {
+                result = number1 + number2;
+            }
+            case "-" -> {
+                result = number1 - number2;
+            }
+            case "*" -> {
+                result = number1 * number2;
+            }
+            default -> System.out.println("Unexpected value");
+        }
+        return result;
     }
 
     public static void runCalc() {
@@ -31,7 +38,7 @@ public class Calc {
             int num2 = Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1;
             String operator = getOperator();
             calcQA[i][0] = num1 + " " + operator + " " + num2;
-            calcQA[i][1] = calculate(num1, num2, operator);
+            calcQA[i][1] = Integer.toString(calculate(num1, num2, operator));
         }
         Engine.runGame(INSTRUCTION, calcQA);
     }
