@@ -8,8 +8,8 @@ public class Engine {
     public static void runGame(String instruction, String[][] gameQA) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        Scanner nameScanner = new Scanner(System.in);
-        String playerName = nameScanner.nextLine();
+        Scanner userScanner = new Scanner(System.in);
+        String playerName = userScanner.nextLine();
         System.out.println("Hello, " + playerName + "!");
 
         System.out.println(instruction);
@@ -17,15 +17,8 @@ public class Engine {
         for (var rightAnswersCount = 0; rightAnswersCount < ROUND_COUNT; rightAnswersCount++) {
             System.out.println("Question: " + gameQA[index][0]);
 
-            Scanner answerInGame = new Scanner(System.in);
             System.out.print("Your answer: ");
-            String answerFromUser;
-
-            if (answerInGame.hasNextInt()) {
-                answerFromUser = String.valueOf(answerInGame.nextInt());
-            } else {
-                answerFromUser = answerInGame.nextLine();
-            }
+            String answerFromUser = userScanner.nextLine();
 
             if (answerFromUser.equals(gameQA[index][1])) {
                 System.out.println("Correct!");
