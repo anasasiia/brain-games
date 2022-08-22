@@ -10,9 +10,8 @@ Brain Games - приложение, которое предлагает поль
 попробовать еще раз. 
 
 
-https://asciinema.org/a/GsmLpbfylsMfmBa6MC55DVbur
-https://asciinema.org/a/YZQKrRR1B3SUM2eOHTEDuxQfi
-https://asciinema.org/a/E5MgOLhwyJxYgCsoH99fC3HLV
-https://asciinema.org/a/CheerPOXwrUCh0sPlTnswISL4
-https://asciinema.org/a/KBvRkwdeGHA2STTR4kDaMI5sZ
-https://asciinema.org/a/PUXKRqTyX3pCsfnS2c2AdjPlL
+https://asciinema.org/a/516437
+https://asciinema.org/a/516440
+https://asciinema.org/a/516441
+https://asciinema.org/a/516443
+https://asciinema.org/a/516444
