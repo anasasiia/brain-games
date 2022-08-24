@@ -17,7 +17,7 @@ public class Progression {
         return progression;
     }
 
-    private static String hideNumber(int[] progression, int hiddenNumber) {
+    private static String buildQuestion(int[] progression, int hiddenNumber) {
         var result = new StringBuilder();
         for (var i = 0; i < progression.length; i++) {
             if (i == hiddenNumber) {
@@ -38,7 +38,7 @@ public class Progression {
             int index = Math.abs(Utils.generateRandomNumber(MAX_RANDOM_NUMBER) + 1);
             int[] progression = generateProgression(length, firstElement, index);
             int hiddenNumber = Math.abs(Utils.generateRandomNumber(progression.length));
-            progressionQA[i][0] = hideNumber(progression, hiddenNumber);
+            progressionQA[i][0] = buildQuestion(progression, hiddenNumber);
             progressionQA[i][1] = String.valueOf(progression[hiddenNumber]);
         }
         Engine.runGame(INSTRUCTION, progressionQA);
