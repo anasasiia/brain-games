@@ -9,9 +9,12 @@ Brain Games - приложение, которое предлагает поль
 после 3 правильных ответов игра завершается поздравлением. Если ответ оказался неверным, игра останавливается и предлагает
 попробовать еще раз. 
 
+[![asciicast](https://asciinema.org/a/516437.png)](https://asciinema.org/a/516437)
 
-https://asciinema.org/a/516437
-https://asciinema.org/a/516440
-https://asciinema.org/a/516441
-https://asciinema.org/a/516443
-https://asciinema.org/a/516444
+[![asciicast](https://asciinema.org/a/516440.png)](https://asciinema.org/a/516440)
+
+[![asciicast](https://asciinema.org/a/516441.png)](https://asciinema.org/a/516441)
+
+[![asciicast](https://asciinema.org/a/516443.png)](https://asciinema.org/a/516443)
+
+[![asciicast](https://asciinema.org/a/516444.png)](https://asciinema.org/a/516444)
